@@ -71,13 +71,13 @@
       <artifactId>spring-kafka</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-springboot-messaging</artifactId>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-springboot-messaging</artifactId>
     </dependency>
     <!-- kogito -->
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-spring-boot-starter</artifactId>
+      <groupId>org.jbpm</groupId>
+      <artifactId>jbpm-with-drools-spring-boot-starter</artifactId>
     </dependency>
     <!--~~(Unable to download POM. Tried repositories:
 https://repository.jboss.org/nexus/content/groups/public/: HTTP 404

@@ -84,9 +84,9 @@ This needs to be given when starting process instance as delay attribute of type
 ### Prerequisites
 
 You will need:
-  - Java 11+ installed
+  - Java 17+ installed
   - Environment variable JAVA_HOME set accordingly
-  - Maven 3.8.6+ installed
+  - Maven 3.9.6+ installed
 
 When using native image compilation, you will also need:
   - GraalVM 19.3+ installed
@@ -148,7 +148,7 @@ To be able to use Kogito Job Service as timer service , an additional dependency
 
 ```xml
 <dependency>
-  <groupId>org.kie.kogito</groupId>
+  <groupId>org.kie</groupId>
   <artifactId>kogito-addons-quarkus-jobs-management</artifactId>
 </dependency>
 ```
@@ -316,9 +316,3 @@ Before timer... waiting for  R2/PT1S
 After Timer
 After Timer
 ```
-
-## Deploy on OpenShift
-
-This example can run on OpenShift 4 instance. Use [Kogito operator](https://docs.jboss.org/kogito/release/latest/html_single/#chap_kogito-deploying-on-openshift) to deploy this example and instantiate also the Jobs service. Kogito operator will take care of configuring this example to successfully connect to the Jobs service.
-
-In the [`operator`](operator) directory you'll find the custom resources needed to deploy this example on OpenShift with the Kogito Operator.

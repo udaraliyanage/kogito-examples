@@ -31,10 +31,10 @@
   <name>Kogito Example :: Process Usertasks with Timer Data Index persistence addon Quarkus</name>
   <description>Kogito user tasks orchestration with security enabled on REST api using the Data Index Persistence addon - Quarkus</description>
   <properties>
-    <quarkus-plugin.version>3.2.9.Final</quarkus-plugin.version>
+    <quarkus-plugin.version>3.2.10.Final</quarkus-plugin.version>
     <quarkus.platform.artifact-id>quarkus-bom</quarkus.platform.artifact-id>
     <quarkus.platform.group-id>io.quarkus</quarkus.platform.group-id>
-    <quarkus.platform.version>3.2.9.Final</quarkus.platform.version>
+    <quarkus.platform.version>3.2.10.Final</quarkus.platform.version>
     <kogito.bom.group-id>org.kie.kogito</kogito.bom.group-id>
     <kogito.bom.artifact-id>kogito-bom</kogito.bom.artifact-id>
     <kogito-apps.bom.artifact-id>kogito-apps-bom</kogito-apps.bom.artifact-id>
@@ -84,30 +84,30 @@
     </dependency>
 
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-quarkus</artifactId>
+      <groupId>org.jbpm</groupId>
+      <artifactId>jbpm-with-drools-quarkus</artifactId>
     </dependency>
 
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-quarkus-processes</artifactId>
+      <groupId>org.jbpm</groupId>
+      <artifactId>jbpm-quarkus</artifactId>
     </dependency>
 
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-quarkus-process-management</artifactId>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-quarkus-process-management</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.kie.kogito</groupId>
+      <groupId>org.kie</groupId>
       <artifactId>kogito-addons-quarkus-jobs-management</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-quarkus-process-svg</artifactId>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-quarkus-process-svg</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-quarkus-source-files</artifactId>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-quarkus-source-files</artifactId>
     </dependency>
 
     <!-- Persistence -->
@@ -120,19 +120,19 @@
       <artifactId>quarkus-agroal</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-quarkus-persistence-jdbc</artifactId>
+      <groupId>org.kie</groupId>
+      <artifactId>kie-addons-quarkus-persistence-jdbc</artifactId>
     </dependency>
 
     <!-- Data Index Persistence -->
     <dependency>
-      <groupId>org.kie.kogito</groupId>
+      <groupId>org.kie</groupId>
       <artifactId>kogito-addons-quarkus-data-index-persistence-postgresql</artifactId>
     </dependency>
 
     <!-- Jobs Service -->
     <dependency>
-      <groupId>org.kie.kogito</groupId>
+      <groupId>org.kie</groupId>
       <artifactId>kogito-addons-quarkus-jobs</artifactId>
     </dependency>
     <dependency>
@@ -142,12 +142,12 @@
 
     <!-- Data Audit -->
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-data-audit-jpa-quarkus</artifactId>
+      <groupId>org.kie</groupId>
+      <artifactId>kogito-addons-quarkus-data-audit-jpa</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.kie.kogito</groupId>
-      <artifactId>kogito-addons-data-audit-quarkus</artifactId>
+      <groupId>org.kie</groupId>
+      <artifactId>kogito-addons-quarkus-data-audit</artifactId>
     </dependency>
   </dependencies>
   <profiles>
@@ -170,8 +170,8 @@
       </properties>
       <dependencies>
         <dependency>
-          <groupId>org.kie.kogito</groupId>
-          <artifactId>runtime-tools-quarkus-extension</artifactId>
+          <groupId>org.jbpm</groupId>
+          <artifactId>jbpm-quarkus-devui</artifactId>
         </dependency>
       </dependencies>
     </profile>
@@ -210,9 +210,6 @@
               <target>
                 <copy todir="./docker-compose/svg" overwrite="true">
                   <fileset dir="target/classes/META-INF/processSVG/"/>
-                </copy>
-                <copy todir="./docker-compose/persistence" overwrite="true">
-                  <fileset dir="target/classes/META-INF/resources/persistence/protobuf/"/>
                 </copy>
               </target>
             </configuration>
