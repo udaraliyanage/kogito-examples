@@ -27,14 +27,14 @@
   <parent>
     <groupId>org.kie.kogito.examples</groupId>
     <artifactId>kogito-springboot-examples</artifactId>
-    <version>9.99.0</version>
+    <version>9.99.1</version>
   </parent>
   <artifactId>ruleunit-event-driven-springboot</artifactId>
   <name>Kogito Example :: RuleUnit Event Driven :: Spring Boot</name>
 
   <properties>
-    <version.org.kie.kogito>9.99.0</version.org.kie.kogito>
-    <kogito.bom.version>9.99.0</kogito.bom.version>
+    <version.org.kie.kogito>9.99.1</version.org.kie.kogito>
+    <kogito.bom.version>9.99.1</kogito.bom.version>
   </properties>
 
   <dependencyManagement>

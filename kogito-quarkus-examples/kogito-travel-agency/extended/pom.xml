@@ -25,7 +25,7 @@
   <parent>
     <groupId>org.kie.kogito.examples</groupId>
     <artifactId>kogito-travel-agency-example</artifactId>
-    <version>9.99.0</version>
+    <version>9.99.1</version>
   </parent>
   <artifactId>kogito-travel-agency-example-extended</artifactId>
   <packaging>pom</packaging>
