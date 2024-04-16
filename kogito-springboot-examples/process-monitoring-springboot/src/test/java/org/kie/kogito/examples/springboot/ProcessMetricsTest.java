@@ -25,7 +25,7 @@ import org.kie.kogito.Model;
 import org.kie.kogito.process.Process;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.boot.test.autoconfigure.actuate.metrics.AutoConfigureMetrics;
+import org.springframework.boot.test.autoconfigure.actuate.observability.AutoConfigureObservability;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.server.LocalServerPort;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
@@ -42,7 +42,7 @@ import static org.kie.kogito.test.utils.ProcessInstancesTestUtils.abort;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT, classes = DemoApplication.class)
-@AutoConfigureMetrics
+@AutoConfigureObservability
 public class ProcessMetricsTest {
 
     private static final String PROJECT_VERSION = ProjectMetadataProvider.getProjectVersion();
@@ -108,15 +108,15 @@ public class ProcessMetricsTest {
                                 PROJECT_ARTIFACT_ID, PROJECT_VERSION)))
                 .body(containsString(
                         String.format(
-                                "kogito_work_item_duration_seconds_max{artifactId=\"%s\",name=\"org.kie.kogito.examples.springboot.CalculationService_calculateTotal_3_Handler\",version=\"%s\",}",
+                                "kogito_work_item_duration_seconds_max{artifactId=\"%s\",name=\"org.kie.kogito.examples.springboot.CalculationService_calculateTotal_ServiceTask_1_Handler\",version=\"%s\",}",
                                 PROJECT_ARTIFACT_ID, PROJECT_VERSION)))
                 .body(containsString(
                         String.format(
-                                "kogito_work_item_duration_seconds_count{artifactId=\"%s\",name=\"org.kie.kogito.examples.springboot.CalculationService_calculateTotal_3_Handler\",version=\"%s\",}",
+                                "kogito_work_item_duration_seconds_count{artifactId=\"%s\",name=\"org.kie.kogito.examples.springboot.CalculationService_calculateTotal_ServiceTask_1_Handler\",version=\"%s\",}",
                                 PROJECT_ARTIFACT_ID, PROJECT_VERSION)))
                 .body(containsString(
                         String.format(
-                                "kogito_work_item_duration_seconds_sum{artifactId=\"%s\",name=\"org.kie.kogito.examples.springboot.CalculationService_calculateTotal_3_Handler\",version=\"%s\",}",
+                                "kogito_work_item_duration_seconds_sum{artifactId=\"%s\",name=\"org.kie.kogito.examples.springboot.CalculationService_calculateTotal_ServiceTask_1_Handler\",version=\"%s\",}",
                                 PROJECT_ARTIFACT_ID, PROJECT_VERSION)));
     }
 }
