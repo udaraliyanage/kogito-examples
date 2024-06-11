@@ -111,6 +111,11 @@ java -jar target\quarkus-app\quarkus-run.jar
 ```
 
 ### Package and Run using Local Native Image
+Note that the following configuration property needs to be added to `application.properties` in order to enable automatic registration of `META-INF/services` entries required by the workflow engine:
+```
+quarkus.native.auto-service-loader-registration=true
+```
+
 Note that this requires GRAALVM_HOME to point to a valid GraalVM installation
 
 ```
@@ -161,11 +166,11 @@ Content (cloud event format)
 
 ```json
 {
-  "specversion": "0.3",
+  "specversion": "1.0",
   "id": "21627e26-31eb-43e7-8343-92a696fd96b1",
   "source": "",
-  "type": "TravellersMessageDataEvent_3",
-  "time": "2022-02-24T13:25:16+0000",
+  "type": "travellers",
+  "time": "2022-02-24T13:25:16Z",
   "data": {
 	"firstName" : "Jan",
 	"lastName" : "Kowalski",
@@ -177,7 +182,7 @@ Content (cloud event format)
 One liner
 
 ```json
-{"specversion": "0.3","id": "21627e26-31eb-43e7-8343-92a696fd96b1","source": "","type": "travellers", "time": "2022-02-24T13:25:16Z","data": { "firstName" : "Jan", "lastName" : "Kowalski", "email" : "jan.kowalski@example.com", "nationality" : "Polish"}}
+{"specversion": "1.0","id": "21627e26-31eb-43e7-8343-92a696fd96b1","source": "","type": "travellers", "time": "2022-02-24T13:25:16Z","data": { "firstName" : "Jan", "lastName" : "Kowalski", "email" : "jan.kowalski@example.com", "nationality" : "Polish"}}
 ```
 
 
@@ -207,7 +212,7 @@ this will then trigger the successful processing of the traveller and put anothe
 }
 ```
 
-there are bunch of extension attributes that starts with `kogito` to provide some context of the execution and the event producer.
+there is a bunch of extension attributes that starts with `kogito` to provide some context of the execution and the event producer.
 
 To take the other path of the process put following message on `travellers` topic
 
@@ -221,7 +226,7 @@ With the following content (Cloud Event Format)
 
 ```json
 {
-  "specversion": "0.3",
+  "specversion": "1.0",
   "id": "31627e26-31eb-43e7-8343-92a696fd96b1",
   "source": "",
   "type": "travellers",
@@ -238,7 +243,7 @@ With the following content (Cloud Event Format)
 One Liner
 
 ```json
-{"specversion": "0.3","id": "31627e26-31eb-43e7-8343-92a696fd96b1","source": "","type": "travellers", "time": "2022-02-24T13:25:16Z","data": { "firstName" : "John", "lastName" : "Doe", "email" : "john.doe@example.com", "nationality" : "American"}}
+{"specversion": "1.0","id": "31627e26-31eb-43e7-8343-92a696fd96b1","source": "","type": "travellers", "time": "2022-02-24T13:25:16Z","data": { "firstName" : "John", "lastName" : "Doe", "email" : "john.doe@example.com", "nationality" : "American"}}
 ```
 
 this will result in message being send to `cancelledtravelers` topic, according to this configuration

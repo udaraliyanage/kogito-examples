@@ -47,6 +47,11 @@ java -jar target\quarkus-app\quarkus-run.jar
 ```
 
 ### Compile and Run using Local Native Image
+Note that the following configuration property needs to be added to `application.properties` in order to enable automatic registration of `META-INF/services` entries required by the workflow engine:
+```
+quarkus.native.auto-service-loader-registration=true
+```
+
 Note that this requires GRAALVM_HOME to point to a valid GraalVM installation
 
 ```text
@@ -66,6 +71,7 @@ with following content
 
 ```json
 {
+  "port": 8080,
   "inputNumbers": {
    "numbers": [
             1,
@@ -85,11 +91,11 @@ with following content
 Complete curl command can be found below:
 
 ```text
-curl -X POST -H 'Content-Type:application/json' -H 'Accept:application/json' -d '{"inputNumbers" : {"numbers": [1,2,3,4,5,6,7,8,7]}}' http://localhost:8080/RestExample
+curl -X POST -H 'Content-Type:application/json' -H 'Accept:application/json' -d '{"inputNumbers" : {"port":8080, "numbers": [1,2,3,4,5,6,7,8,7]}}' http://localhost:8080/RestExample
 ```
 
 curl response will be something like this, which includes field `sum`, the result of multiplying each input number by 8 (that number might differ in your execution) and summing all of them:
 
 ```text
-{"id":"8e79ac60-c0c1-40d0-808e-8d3585307661","randomNumber":8,"sum":344,"inputNumbers":{"numbers":[1,2,3,4,5,6,7,8,7]}}
+{"id":"8e79ac60-c0c1-40d0-808e-8d3585307661","port":8080,"randomNumber":8,"sum":344,"inputNumbers":{"numbers":[1,2,3,4,5,6,7,8,7]}}
 ```
