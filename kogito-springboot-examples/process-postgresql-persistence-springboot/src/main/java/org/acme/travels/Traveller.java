@@ -15,7 +15,9 @@
  */
 package org.acme.travels;
 
-public class Traveller {
+import java.io.Serializable;
+
+public class Traveller implements Serializable {
 
     private String firstName;
     private String lastName;
